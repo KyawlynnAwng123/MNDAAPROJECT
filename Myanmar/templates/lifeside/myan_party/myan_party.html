@@ -1,0 +1,98 @@
+{% load static %}
+<div>
+  <h4
+    align="center"
+    style="background-color: #db3434; border-radius: 5px"
+    class="mt-3 bold pb-2 pt-2 color-white"
+  >
+    <a href="nation/party.html" class="none-text-decoration">PARTY</a>
+  </h4>
+</div>
+<div class="row mt-4">
+  {% for post in last_post_party %}
+  <div class="col-md-6">
+    <div
+      style="
+        background-image: url({{post.images.url}});
+        width: 100%;
+        height: 400px;
+      "
+      class="bg-cover"
+    ></div>
+  </div>
+
+  <div class="col-md-6">
+    <h5 class="statement-header">{{post.name|truncatechars:50}}</h5>
+    <p>{{post.discription|truncatechars:100}}</p>
+    <i
+      style="font-size: 13px; color: #727272; margin-right: 5px"
+      class="bi bi-clock"
+    ></i
+    ><small class="small-muted" style="color: #727272"
+      >Last updated {{post.created|timesince}} ago</small
+    >
+    <p>
+      <small class="small-muted" style="color: #727272; font-weight: bold"
+        >{{post.category|upper}}</small
+      >
+    </p>
+    <button
+      class="btn btn-danger"
+      style="
+        background-color: #db3434;
+        border: 1px solid #db3434;
+        font-weight: 600;
+      "
+    >
+      <a
+        href="{% url 'myan_party_detail_page' post.id %}"
+        class="none-text-decoration"
+        >Read More</a
+      >
+    </button>
+  </div>
+</div>
+{% endfor %}
+
+<div class="row mt-4">
+  <!-- big card -->
+  {% for post in last_two_post_party %}
+  <div class="col-md-6">
+    <div class="card text-bg-primary mb-3 card-red">
+      <div
+        class="card-image-top big-card-image"
+        style="background-image: url({{post.images.url}})"
+        alt=""
+      ></div>
+
+      <div class="card-body">
+        <h5 class="card-title">{{post.name|truncatechars:50}}</h5>
+        <p class="card-text">{{post.discription|truncatechars:100}}</p>
+
+        <i
+          style="font-size: 13px; color: #727272; margin-right: 5px"
+          class="bi bi-clock"
+        ></i
+        ><small class="small-muted" style="color: #727272"
+          >Last updated {{post.created|timesince}} ago</small
+        >
+        <p>
+          <small class="small-muted" style="color: #727272; font-weight: bold"
+            >{{post.category|upper}}</small
+          >
+        </p>
+        <a href="{% url 'myan_party_detail_page' post.id %}"
+          ><button
+            class="btn btn-danger"
+            style="background-color: #db3434; border: 1px solid #db3434"
+          >
+            Read More
+          </button></a
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- end of big card -->
+  {% endfor %}
+</div>

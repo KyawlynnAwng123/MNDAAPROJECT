@@ -1,0 +1,150 @@
+
+<nav class="navbar navbar-expand-lg navigation">
+     <span class="container-fluid">
+       <a class="navbar-brand bold" href="{% url 'indexpage' %}">
+         <span class="bold" style="letter-spacing: 1px;color: red;font-size: 26px;">MNDAA</span>
+       </a>
+        <!-- language -->
+        
+        {% comment %} {% url 'myanmarpage' as myan_url %}
+        {% url 'myan_news_page' as myan_news_url %}
+        {% url 'myan_nation_partypage' as myan_nation_party_url %}
+        {% url 'myan_nation_militarypage' as myan_nation_military_url %}
+        {% url 'myan_announ_statement_page' as url %} {% endcomment %}
+
+        <li class="nav-item dropdown lang ms-auto" style="list-style: none;">
+         <a class="languageMob nav nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+          
+           {% if page == 'english' %}
+           English
+
+        
+           {% else %}
+           Myanmar
+           {% endif %}
+         </a>
+         <ul class="dropdown-menu">
+           <li><a class="dropdown-item {% if request.path == myan_url %}my-dropdown-active{% endif %}" href="{% url 'myanmarpage' %}">Myanmar</a></li>
+           <li><a class="dropdown-item" href="">Kokang</a></li>
+           <li><a class="dropdown-item 
+            {% if request.path == en_url %}my-dropdown-active{% endif %}
+            
+            " href="{% url 'indexpage' %}">English</a></li>
+         </ul>
+       </li>
+       <!-- end of language -->
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon">
+           <i style="font-size: 27px;color: #888;" class="bi bi-list"></i>
+         </span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {% url 'myanmarpage' as url %}
+         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+           <li class="nav-item">
+             <a class="my-nav nav-link  {% if request.path == url %}my-active{% endif %}" href="{% url 'myanmarpage' %}">
+              မူလစာမျက်နှာ
+               
+             </a>
+           </li>
+           {% url 'myan_news_page' as url %}
+           <li class="nav-item">
+             <a class="my-nav nav-link {% if request.path == url %}my-active{% endif %}" href="{% url 'myan_news_page' %}">သတင်းများ</a>
+           </li>
+ 
+           <!-- drop down -->
+           {% url 'myan_nation_militarypage' as m_url %}
+           {% url 'myan_nation_partypage' as p_url %}
+           <li class="nav-item dropdown">
+             <a class="my-nav nav nav-link dropdown-toggle {% if request.path == m_url %}my-active{% endif %} {% if request.path == p_url %}my-active{% endif %}" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+               အမျိုးသားရေး
+             </a>
+             <ul class="dropdown-menu">
+               <li><a class="dropdown-item" href="{% url 'myan_nation_partypage' %}">ပါတီ</a></li>
+               <li><a class="dropdown-item" href="{% url 'myan_nation_militarypage' %}">စစ်တပ်</a></li>
+             </ul>
+           </li>
+           <!-- end of drop down -->
+ 
+           <!-- drop down -->
+           {% url 'myan_announ_statement_page' as url %}
+           <li class="nav-item dropdown">
+             <a class="my-nav nav nav-link dropdown-toggle {% if request.path == url %}my-active{% endif %}" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+               ကြေငြာချက်များ
+             </a>
+             <ul class="dropdown-menu">
+               <li><a class="dropdown-item" href="{% url 'myan_announ_statement_page' %}">ထုတ်ပြန်ချက်</a></li>
+               <li><a class="dropdown-item" href="{% url 'speechpage_announ_page' %}">မိန့်ခွန်း</a></li>
+               <li><a class="dropdown-item" href="{% url 'interview_announ_page' %}">အင်တားဗျူး</a></li>
+             </ul>
+           </li>
+           <!-- end of drop down -->
+ 
+           <!-- drop down -->
+           {% url 'myan_fpncc_page' as url %}
+           <li class="nav-item dropdown">
+             <a class="my-nav nav nav-link dropdown-toggle {% if request.path == url %}my-active{% endif %}" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+               မဟာမိတ်
+             </a>
+             <ul class="dropdown-menu">
+               <li><a class="dropdown-item" href="{% url 'northern-allience-page' %}">မြောက်ပိုင်းမဟာမိတ်</a></li>
+               <li><a class="dropdown-item" href="{% url 'myan_fpncc_page' %}">FPNCC</a></li>
+             </ul>
+           </li>
+           <!-- end of drop down -->
+ 
+           <!-- drop down -->
+           <li class="nav-item dropdown">
+             <a class="my-nav nav nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+               အကြောင်းအရာ
+             </a>
+             <ul class="dropdown-menu">
+               <li><a class="dropdown-item" href="../aboutUs/history.html">History</a></li>
+               <li><a class="dropdown-item" href="../aboutUs/calture.html">Calture</a></li>
+               <li>
+                 <hr class="dropdown-divider">
+               </li>
+               <li><a class="dropdown-item" href="../aboutUs/leader.html">Leader</a></li>
+             </ul>
+           </li>
+           <!-- end of drop down -->
+           <li class="nav-item">
+             <a class="my-nav nav-link" href="#">ဆက်သွယ်ရန်</a>
+           </li>
+         </ul>
+         
+           <!-- drop down -->
+           {% url 'myanmarpage' as myan_url %}
+           <li class="nav-item dropdown lang" style="list-style: none;">
+             <a class="languageWeb nav nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+             {% if page == 'english' %}
+             English
+             {% else %}
+             Myanmar
+             {% endif %}
+               
+             </a>
+             <ul class="dropdown-menu">
+               <li><a class="dropdown-item {% if request.path == myan_url %}my-dropdown-active{% endif %}" href="{% url 'myanmarpage' %}">Myanmar</a></li>
+               <li><a class="dropdown-item" href="">Kokang</a></li>
+               <li><a class="dropdown-item 
+                {% if request.path == en_url %}my-dropdown-active{% endif %}"
+                 href="{% url 'indexpage' %}">English</a></li>
+             </ul>
+           </li>
+           <!-- end of drop down -->
+         <form class="d-flex" role="search">
+           <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+         </form>
+       </div>
+   </nav>
+   <!-- navbar -->
+
+

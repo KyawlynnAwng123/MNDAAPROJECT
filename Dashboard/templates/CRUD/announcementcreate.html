@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+   <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+   <title>Announcement Post Create</title>
+</head>
+<body>
+   <div class="row me-0">
+      <!-- left side -->
+      <div class="col-md-3 vh-100 g-0">
+        <img src="{% static 'images/MNDAAcopy.png' %}" class="object-fit-cover" width="100%" height="150px" alt="">
+        <img class="user-logo d-block mx-auto mt-4 rounded-circle" src="{% static 'images/man.jpg' %}" width="100px" height="100px" alt="">
+         <!-- name and language -->
+         <div class="text-danger text-center mt-3">
+            {% if request.user.is_authenticated %}
+            <b>{{request.user.username|upper}}</b>
+            <br />
+            {% if request.user.english == True %}
+            <small>English Version</small>
+            {% else %}
+            <small>Myanmar Version</small>
+            {% endif %}
+            {% else %}
+            
+            {% endif %}
+         </div>
+         <!-- end of name and language -->
+         
+         <!-- menu -->
+         <div class="list-group ps-4 pe-3 mt-4">
+            <div class="list-group-item list-group-item-action bg-danger fw-bold text-white">Posts</div>
+            <a href="{% url 'postcreatepage' %}" class="list-group-item list-group-item-action list-active">Post Create</a>
+            <a href="{% url 'postcreatepage' %}" class="list-group-item list-group-item-action list-active"
+            >Announcement Post Create</a
+          > 
+             <a href="{% url 'postcreatepage' %}" class="list-group-item list-group-item-action list-active"
+            >Alliances Post Create</a
+          > 
+            <a href="{% url 'allpostpage' %}" class="list-group-item list-group-item-action">Post All</a>
+              <a href="{% url 'statementpage' %}" class="list-group-item list-group-item-action"
+            >Statement Posts </a
+          >
+           <a href="{% url 'militarypage' %}" class="list-group-item list-group-item-action"
+            >Military Posts </a
+          >
+               <a href="{% url 'partypage' %}" class="list-group-item list-group-item-action"
+            >Party Posts </a
+          >
+         </div>
+         <!-- end of menu -->
+
+         <!-- menu -->
+         <div class="list-group ps-4 pe-3 mt-4">
+            <div class="list-group-item list-group-item-action bg-danger fw-bold text-white">Category</div>
+            <a href="{% url 'categorycreatepage' %}" class="list-group-item list-group-item-action">Category Create</a>
+            <a href="{% url 'allcategorypage' %}" class="list-group-item list-group-item-action">Category All</a>
+         </div>
+         <!-- end of menu -->
+         
+         <!-- log out -->
+         <div class="navbar fixed-bottom bg-danger col-md-3 row" style="margin-left: -9px;">
+            <div class="dropup mt-3">
+               <p align="right" class="text-white fw-bold dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Log out</p>
+               <div style="right:0;left:auto" class="dropdown-menu" aria-labelledby="triggerId">
+                  <a class="dropdown-item" href="#">Yes</a>
+                  <a class="dropdown-item" href="#">No</a>
+               </div>
+            </div>
+         </div>
+         <!-- end of log out -->
+
+      </div>
+      <!-- end of left side -->
+
+      
+
+      <!-- right side -->
+      <div class="col-md-9 g-0" style="background-color: #80808059">
+         <!-- nav bar -->
+         <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container">
+               <a class="navbar-brand" href="#">
+                  <h2 class="fw-bold ms-3" style="color: red;text-shadow: 1px 1px 1px black;">
+                     MNDAA ADMIN PANEL
+                  </h2>
+               </a>
+               <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="collapsibleNavId">
+                  <form class="d-flex ms-auto my-2 my-lg-0">
+                     <input class="form-control me-sm-2" type="text" placeholder="Search">
+                  </form>
+               </div>
+            </div>
+         </nav>
+         <!-- end of nav bar -->
+
+         <!------------------------- body ---------------------------->
+         <div class="container-fluid">
+            <div class="row">
+                <!-- left side -->
+                <div class="col-md-6">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                     {% csrf_token %}
+                     <div class="card ms-3 mt-3 vh-100">
+                        <div class="card-header">Announcement Post Create</div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                              <label for="" class="form-label">Title</label>
+                              <input id="title" onkeyup="titleFnc()" type="text"
+                                class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Image</label>
+                                <input id="imageInput" type="file"
+                                  class="form-control" name="image" id="" aria-describedby="helpId" placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Category</label>
+                                <select class="form-select form-select-md" name="category" id="category" onchange="categoryFnc()">
+                                
+                                    <option selected>Select one</option>
+                                    {% for cat in category %}
+                                    <option value="{{cat.id}}">{{cat.name}}</option>
+                                    {% endfor %}
+                                    
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                              <label for="" class="form-label">Text</label>
+                              <textarea onkeyup="textareaFnc()" class="form-control" name="discription" id="textarea" rows="8"></textarea>
+                            </div>
+                            <button type="submit" name="saveandanother" class="btn btn-primary mt-3">Save And Another</button>
+                            <button type="submit" class="btn btn-primary mt-3">Save</button>
+                        
+                            <a href="{% url 'dashboardpage' %}"><button type="button" class="btn btn-primary mt-3">Back</button></a>
+                        </div>
+                       
+
+                    </div>
+                    </form>
+                </div>
+                <!-- end of left side -->
+    
+                <!-- right side -->
+                <div class="col-md-6">
+                    <div class="card me-3 mt-3 vh-100">
+                        <div class="card-header">Preview</div>
+                        <div class="card-body">
+                            <h5 id="titleShow"></h5>
+                            <output id="imageOutput" class="mb-1"></output>
+                            <p id="categoryShow"></p>
+                            <p id="textareaShow"></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of right side -->
+             </div>
+         </div>
+         <!-------------------- end of body --------------------------->
+      </div>
+      <!-- end of right side -->
+   </div>
+
+   <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+   <script>
+        // title
+        let title = document.getElementById('title');
+        let titleShow = document.getElementById('titleShow');
+        let titleFnc = () =>{
+            titleShow.innerHTML = `${title.value}`;
+        }
+        titleShow.innerHTML = `${title.value}`;
+
+        // image view
+        const input = document.getElementById('imageInput');
+        const output = document.getElementById('imageOutput');
+        let imagesArray = [];
+        input.addEventListener('change',() => {
+        const file = input.files;
+        imagesArray.push(file[0])
+        displayImage()
+        })
+        function displayImage(){
+        let images = "";
+        imagesArray.forEach((image) => {
+            images = `
+                <div style="border-radius:5px;width:100%;height:250px;background-image:url('${URL.createObjectURL(image)}');background-size:cover;background-position:center"></div>
+            `
+        })
+        output.innerHTML = images
+        }
+
+        // category
+        let category = document.getElementById('category');
+        let categoryShow = document.getElementById('categoryShow');
+        let categoryFnc = () => {
+            categoryShow.innerHTML = `${category.value}`
+        };
+        categoryShow.innerHTML = `${category.value}`
+
+        // textarea
+        let textarea = document.getElementById('textarea');
+        let textareaShow = document.getElementById('textareaShow');
+        let textareaFnc = () => {
+            textareaShow.innerHTML = `${textarea.value}`
+        };
+        textareaShow.innerHTML = `${textarea.value}` 
+   </script>
+</body>
+</html>

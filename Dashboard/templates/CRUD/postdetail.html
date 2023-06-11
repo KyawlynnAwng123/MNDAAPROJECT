@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+   <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+   <link rel="stylesheet" href="{% static 'bootstrap-icons/bootstrap-icons.css' %}">
+   <title>All Posts</title>
+</head>
+<body>
+   <div class="row me-0">
+      <!-- left side -->
+      <div class="col-md-3 vh-100 g-0">
+          <img src="{% static 'images/MNDAAcopy.png' %}" class="object-fit-cover" width="100%" height="150px" alt="">
+          <img class="user-logo d-block mx-auto mt-4 rounded-circle" src="{% static 'images/man.jpg' %}" width="100px" height="100px" alt="">
+
+         <!-- name and language -->
+         <div class="text-danger text-center mt-3">
+         {% if request.user.is_authenticated %}
+          <b>{{request.user.username|upper}}</b>
+          <br />
+          {% if request.user.english == True %}
+          <small>English Version</small>
+          {% else %}
+          <small>Myanmar Version</small>
+          {% endif %}
+          {% else %}
+          {% endif %}
+         </div>
+         <!-- end of name and language -->
+         
+         <!-- menu -->
+         <div class="list-group ps-4 pe-3 mt-4">
+            <div class="list-group-item list-group-item-action bg-danger fw-bold text-white">Posts</div>
+            <a href="{% url 'postcreatepage' %}" class="list-group-item list-group-item-action list-active">Post Create</a>
+            <a href="{% url 'announcementcreatepage' %}" class="list-group-item list-group-item-action list-active"
+            >Announcement Post Create</a
+          > 
+           <a href="{% url 'postcreatepage' %}" class="list-group-item list-group-item-action list-active"
+            >Alliances Post Create</a
+          > 
+            <a href="{% url 'allpostpage' %}" class="list-group-item list-group-item-action">Post All</a>
+               <a href="{% url 'allpostpage' %}" class="list-group-item list-group-item-action">Post All</a>
+              <a href="{% url 'statementpage' %}" class="list-group-item list-group-item-action"
+            >Statement Posts</a>
+             <a href="{% url 'militarypage' %}" class="list-group-item list-group-item-action"
+            >Military Posts </a
+          >
+               <a href="{% url 'partypage' %}" class="list-group-item list-group-item-action"
+            >Party Posts </a
+          >
+         </div>
+         <!-- end of menu -->
+
+         <!-- menu -->
+         <div class="list-group ps-4 pe-3 mt-4">
+            <div class="list-group-item list-group-item-action bg-danger fw-bold text-white">Category</div>
+            <a href="{% url 'categorycreatepage' %}" class="list-group-item list-group-item-action">Category Create</a>
+            <a href="{% url 'allcategorypage' %}" class="list-group-item list-group-item-action">Category All</a>
+         </div>
+         <!-- end of menu -->
+         
+         <!-- log out -->
+         <div class="navbar fixed-bottom bg-danger col-md-3 row" style="margin-left: -9px;">
+            <div class="dropup mt-3">
+               <p align="right" class="text-white fw-bold dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Log out</p>
+               <div style="right:0;left:auto" class="dropdown-menu" aria-labelledby="triggerId">
+                  <a class="dropdown-item" href="{% url 'logoutpage' %}">Yes</a>
+                  <a class="dropdown-item" href="#">No</a>
+               </div>
+            </div>
+         </div>
+         <!-- end of log out -->
+
+      </div>
+      <!-- end of left side -->
+
+      
+
+      <!-- right side -->
+      <div class="col-md-9 g-0" style="background-color: #80808059">
+         <!-- nav bar -->
+         <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container">
+               <a class="navbar-brand" href="#">
+                  <h2 class="fw-bold ms-3" style="color: red;text-shadow: 1px 1px 1px black;">
+                     MNDAA ADMIN PANEL
+                  </h2>
+               </a>
+               <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="collapsibleNavId">
+                  <form class="d-flex ms-auto my-2 my-lg-0">
+                     <input class="form-control me-sm-2" type="text" placeholder="Search">
+                  </form>
+               </div>
+            </div>
+         </nav>
+         <!-- end of nav bar -->
+
+         <!------------------------- body ---------------------------->
+         <div class="container-fluid">
+            <div class="row">
+                <!-- left side -->
+                <div class="col-md-6">
+                    <div class="card ms-3 mt-3 vh-100">
+                        <div class="card-header">All Posts</div>
+                        <div class="card-body">
+                         {% if request.user.english == True %}
+                         
+                           {% for post in all_posts %}
+                           
+                            <!-- post -->
+                            <div class="d-flex mb-3">
+                                <img width="100px" height="100px" src="{{post.images.url}}" class="rounded object-fit-cover" alt="">
+                                <div class="ms-3">
+                                    <p class="mb-0">{{post.name}}</p>
+                                    <i>
+                                        <small style="margin-top: -10px;">Category</small>
+                                    </i>
+                                    <div class="dropright navbar">
+                                        <small class="dropdown dropright" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            More
+                                            <i style="color: #545353;" class="bi bi-caret-right-fill"></i>
+                                        </small>
+                                        <div style="top: -10px;left: 60px;" class="dropdown-menu px-2" aria-labelledby="triggerId">
+                                            <a name="" id="" class="btn btn-primary btn-sm" href="{% url 'postdetailpage' post.id %}" role="button">Preview</a>
+                                            <a name="" id="" class="btn btn-success btn-sm" href="#" role="button">Edit</a>
+                                            <a onclick="return confirm('Are You Sure To Delete')" name="" id="" class="btn btn-danger btn-sm" href="loginForm.html" role="button">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            
+                            {% else %}
+                            <div>
+                                <h5>There is no anything for you</h5>
+                             </div>
+                            {% endif %}
+                            <!-- end post -->
+                        </div>
+                    </div>
+                </div>
+                <!-- end of left side -->
+    
+                <!-- right side -->
+                <div class="col-md-6">
+                    <div class="card me-3 mt-3 vh-100">
+                        <div class="card-header">Preview</div>
+                        <div class="card-body">
+                            <h5>{{detail_post.name}}</h5>
+                            <img src="{{detail_post.images.url}}" alt="">
+                            <p>{{detail_post.category}}</p>
+                            <p>{{detail_post.discription}}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of right side -->
+             </div>
+         </div>
+         <!-------------------- end of body --------------------------->
+      </div>
+      <!-- end of right side -->
+   </div>
+
+   <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

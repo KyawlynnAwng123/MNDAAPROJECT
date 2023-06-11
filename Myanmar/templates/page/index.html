@@ -1,0 +1,113 @@
+{% extends 'layout/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+     .bg1 {
+          background-image: url({% static 'images/c1.png' %});
+     }
+
+     .bg2 {
+          background-image: url({% static 'images/wa-summit.jpg' %});
+     }
+
+     .bg3 {
+          background-image: url({% static 'images/fpncc.png' %});
+     }
+</style>
+
+
+
+<!-- big image-->
+{% comment %} <div style="margin-top: 8rem;" class="container-fluid upper-second">
+     <div class="big-img"></div>
+</div> {% endcomment %}
+<!-- end of big image-->
+<!-- carousel -->
+<div style="margin-top: 7rem;" id="carouselId" class="carousel slide container-fluid upper-second"
+     data-bs-ride="carousel">
+     <ol class="carousel-indicators">
+          <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
+               aria-label="First slide"></li>
+          <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+          <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+     </ol>
+     <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+               <div class="big-img bg1"></div>
+          </div>
+          <div class="carousel-item">
+               <div class="big-img bg2"></div>
+          </div>
+          <div class="carousel-item">
+               <div class="big-img bg3"></div>
+          </div>
+     </div>
+     <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+     </button>
+     <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+     </button>
+</div>
+<!-- end of carousel -->
+
+<!-- body -->
+<div class="container">
+     <div class="row">
+          <!-- start left side -->
+          <div class="col-md-8">
+               <!-- Statement -->
+               {% include 'lifeside/myan_statement/myan_statement.html' %}
+               <!-- end of Statement -->
+
+               <!-- Military -->
+               {% include 'lifeside/myan_military/myan_military.html' %}
+               <!-- end of Military -->
+
+               <!-- Party -->
+               {% include 'lifeside/myan_party/myan_party.html' %}
+               <!-- end of Party -->
+          </div>
+          <!-- end of left side -->
+
+
+
+          <!-- right side -->
+          <div class="col-md-4">
+               <div class="card mt-4" style="border-top: 0px;">
+                    <!-- start history -->
+                    {% include 'rightside/history/history.html' %}
+                    <!-- end history -->
+               </div>
+          </div>
+          <!-- end of right side -->
+     </div>
+</div>
+<!-- end of body -->
+
+<!-- footer -->
+{% include 'layout/footer/footer.html' %}
+<!-- end of footer -->
+
+
+<!-- back icon -->
+<a style="background-color: #db3434;" href="#"
+     class="back-to-top d-flex align-items-center justify-content-center active">
+     <i style="color: white;" class="bi bi-arrow-up-short"></i>
+</a>
+<!-- end of back icon -->
+</body>
+
+<!-- bootstrap js -->
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+<!-- jquery -->
+<script src="../js/jquery.min.js"></script>
+
+<!-- header js -->
+<script src="../js/header.js"></script>
+
+{% endblock content %}

@@ -1,0 +1,206 @@
+{% extends 'layout/main.html' %}
+{% load static %}
+{% block content %}
+<!-- party body -->
+<div class="container upper-first upper-second">
+     <!-- upper photo -->
+     {% for post in latest_post %}
+     <div class="row mt-4">
+       <div class="col-md-6">
+         <div style="background-image: url({{post.images.url}});width:100%;height:400px" class="bg-cover"></div>
+       </div>
+       <div class="col-md-6">
+         <h5 class="mt-2 bold header-line-height">{{post.name}}</h5>
+         <p class="body-line-height">{{post.discription|truncatechars:100}}</p>
+         <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated {{post.created|timesince}} ago</small>
+         <p><small class="small-muted" style="color:#727272;font-weight: bold;">{{post.category|upper}}</small></p>
+         <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;"><a class="none-text-decoration" href="{% url 'myan_party_detail_page' post.id  %}">Read More</a></button>
+       </div>
+       {% endfor %}
+     </div>
+     <!-- end upper photo -->
+ 
+     <!-- two photo -->
+     <div class="row">
+       <!-- column -->
+       <div class="col-md-6">
+         <div class="card mt-4">
+           <div class="row g-0">
+             <div class="col-lg-6 col-md-12">
+               <div style="background-image: url({% static 'images/MoD-Report-Kokang.jpg' %});width:100%;height:100%" class="bg-cover card-img-mobile rounded-start"></div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+               <div class="card-body">
+                 <h5 class="party-two-photo-header">Hello World</h5>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aut, illo amet perferendis incidunt hic animi iure voluptatum nesciunt similique fugit</p>
+               <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated 3 mins ago</small>
+               <p><small class="small-muted" style="color:#727272;font-weight: bold;">PARTY</small></p>
+               <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;">Read More</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+ 
+       <!-- column -->
+       <div class="col-md-6">
+         <div class="card mt-4">
+           <div class="row g-0">
+             <div class="col-lg-6 col-md-12">
+               <div style="background-image: url({% static 'images/MoD-Report-Kokang.jpg' %});width:100%;height:100%" class="bg-cover card-img-mobile rounded-start"></div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+               <div class="card-body">
+                 <h5 class="party-two-photo-header">Hello World</h5>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aut, illo amet perferendis incidunt hic animi iure voluptatum nesciunt similique fugit</p>
+               <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated 3 mins ago</small>
+               <p><small class="small-muted" style="color:#727272;font-weight: bold;">PARTY</small></p>
+               <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;">Read More</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+ 
+     <div class="row">
+       <!-- column -->
+       <div class="col-md-6">
+         <div class="card mt-4">
+           <div class="row g-0">
+             <div class="col-lg-6 col-md-12">
+               <div style="background-image: url({% static 'images/MoD-Report-Kokang.jpg' %});width:100%;height:100%" class="bg-cover card-img-mobile rounded-start"></div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+               <div class="card-body">
+                 <h5 class="party-two-photo-header">Hello World</h5>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aut, illo amet perferendis incidunt hic animi iure voluptatum nesciunt similique fugit</p>
+               <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated 3 mins ago</small>
+               <p><small class="small-muted" style="color:#727272;font-weight: bold;">PARTY</small></p>
+               <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;">Read More</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+ 
+       <!-- column -->
+       <div class="col-md-6">
+         <div class="card mt-4">
+           <div class="row g-0">
+             <div class="col-lg-6 col-md-12">
+               <div style="background-image: url({% static 'images/MoD-Report-Kokang.jpg' %});width:100%;height:100%" class="bg-cover card-img-mobile rounded-start"></div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+               <div class="card-body">
+                 <h5 class="party-two-photo-header">Hello World</h5>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aut, illo amet perferendis incidunt hic animi iure voluptatum nesciunt similique fugit</p>
+               <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated 3 mins ago</small>
+               <p><small class="small-muted" style="color:#727272;font-weight: bold;">PARTY</small></p>
+               <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;">Read More</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+ 
+     <div class="row">
+       <!-- column -->
+       <div class="col-md-6">
+         <div class="card mt-4">
+           <div class="row g-0">
+             <div class="col-lg-6 col-md-12">
+               <div style="background-image: url({% static 'images/MoD-Report-Kokang.jpg' %});width:100%;height:100%" class="bg-cover card-img-mobile rounded-start"></div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+               <div class="card-body">
+                 <h5 class="party-two-photo-header">Hello World</h5>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aut, illo amet perferendis incidunt hic animi iure voluptatum nesciunt similique fugit</p>
+               <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated 3 mins ago</small>
+               <p><small class="small-muted" style="color:#727272;font-weight: bold;">PARTY</small></p>
+               <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;">Read More</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+ 
+       <!-- column -->
+       <div class="col-md-6">
+         <div class="card mt-4">
+           <div class="row g-0">
+             <div class="col-lg-6 col-md-12">
+               <div style="background-image: url({% static 'images/MoD-Report-Kokang.jpg' %});width:100%;height:100%" class="bg-cover card-img-mobile rounded-start"></div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+               <div class="card-body">
+                 <h5 class="party-two-photo-header">Hello World</h5>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aut, illo amet perferendis incidunt hic animi iure voluptatum nesciunt similique fugit</p>
+               <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated 3 mins ago</small>
+               <p><small class="small-muted" style="color:#727272;font-weight: bold;">PARTY</small></p>
+               <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;">Read More</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+ 
+     <div class="row">
+       <!-- column -->
+       <div class="col-md-6">
+         <div class="card mt-4">
+           <div class="row g-0">
+             <div class="col-lg-6 col-md-12">
+               <div style="background-image: url({% static 'images/MoD-Report-Kokang.jpg' %});width:100%;height:100%" class="bg-cover card-img-mobile rounded-start"></div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+               <div class="card-body">
+                 <h5 class="party-two-photo-header">Hello World</h5>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aut, illo amet perferendis incidunt hic animi iure voluptatum nesciunt similique fugit</p>
+               <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated 3 mins ago</small>
+               <p><small class="small-muted" style="color:#727272;font-weight: bold;">PARTY</small></p>
+               <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;">Read More</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+ 
+       <!-- column -->
+       <div class="col-md-6">
+         <div class="card mt-4">
+           <div class="row g-0">
+             <div class="col-lg-6 col-md-12">
+               <div style="background-image: url({% static 'images/MNDAA soldier1.jpg' %});width:100%;height:100%" class="bg-cover card-img-mobile rounded-start"></div>
+             </div>
+             <div class="col-lg-6 col-md-12">
+               <div class="card-body">
+                 <h5 class="party-two-photo-header">Hello World</h5>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aut, illo amet perferendis incidunt hic animi iure voluptatum nesciunt similique fugit</p>
+               <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated 3 mins ago</small>
+               <p><small class="small-muted" style="color:#727272;font-weight: bold;">PARTY</small></p>
+               <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;">Read More</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- end two photo -->
+   </div>
+   <!-- end of party body -->
+ 
+   <!-- pagination -->
+   <nav aria-label="Page navigation example " class="mt-4 pb-3">                    
+     <ul class="pagination justify-content-center">
+       <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+       <li class="page-item"><a class="page-link" href="#">1</a></li>
+       <li class="page-item"><a class="page-link" href="#">2</a></li>
+       <li class="page-item"><a class="page-link" href="#">3</a></li>
+       <li class="page-item"><a class="page-link" href="#">Next</a></li>
+     </ul>
+   </nav>
+   <!-- end pagination -->
+{% endblock content %}

@@ -1,0 +1,72 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="images/MNDAAlogo.png" rel="icon" />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+
+    <!-- header css -->
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <!-- home css -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <!-- partyviewscss  -->
+    <link rel="stylesheet" href="{% static 'css/partyView.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/party.css' %}" />
+    
+    <link rel="stylesheet" href="{% static 'css/news.css' %}" />
+
+
+    <!-- bootstrap icon -->
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap-icons/bootstrap-icons.css' %}"
+    />
+
+    <!-- start owlcarousel link -->
+    <link
+      rel="stylesheet"
+      href="{% static 'owlcarousel/owl.carousel.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'owlcarousel/owl.theme.default.min.css' %}"
+    />
+    <title>{% block title %}MNDAA PROJECT{% endblock title %}</title>
+  </head>
+
+  <body>
+    <div class="fix-top">
+      <!-- top bar -->
+      {% include 'layout/header/myan_topbar.html' %}
+
+      <!-- end top bar -->
+
+      <!-- navbar -->
+      {% include 'layout/header/myan_navbar.html' %}
+      <!-- navbar -->
+    </div>
+
+    {% block content %} {% endblock content %}
+
+    <!-- bootstrap js -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- jquery -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <!-- header js -->
+    <script src="{% static 'js/header.js' %}"></script>
+
+    <!-- owl carousel js -->
+    <script src="{% static 'owlcarousel/owl.carousel.js' %}"></script>
+    <!-- owl design js -->
+    <script src="{% static 'js/owlcarouseldesign.js' %}"></script>
+  </body>
+</html>

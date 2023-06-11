@@ -1,0 +1,103 @@
+{% load static %}
+<div>
+  <h4
+    align="center"
+    style="color: #db3434; border-radius: 5px"
+    class="mt-4 bold pb-2 pt-2 color-white"
+  >
+    <div style="border-bottom: 2px solid" class="d-flex pb-1 space-between">
+      <span href="">STATEMENT</span>
+      <a
+        href="{% url 'statement_announ_page' %}"
+        style="color: #db3434; text-decoration: none"
+        >View All</a
+      >
+    </div>
+  </h4>
+</div>
+<div class="row mt-4">
+  {% for post in last_post_statement %}
+
+  <div class="col-md-6">
+    <div
+      style="background-image: url({{post.images.url}}); height:400px;"
+      class="bg-cover"
+    ></div>
+  </div>
+
+  <div class="col-md-6">
+    <h5 class="statement-header">{{post.name|truncatechars:20}}</h5>
+    <p>{{post.discription|truncatechars:500}}</p>
+    <i
+      style="font-size: 13px; color: #727272; margin-right: 5px"
+      class="bi bi-clock"
+    ></i
+    ><small class="small-muted" style="color: #727272"
+      >Last updated {{post.created|timesince}} ago</small
+    >
+    <p>
+      <small class="small-muted" style="color: #727272; font-weight: bold"
+        >{{post.category|upper}}</small
+      >
+    </p>
+    <button
+      class="btn btn-danger"
+      style="
+        background-color: #db3434;
+        border: 1px solid #db3434;
+        font-weight: 600;
+      "
+    >
+      <a
+        href="{% url 'myan_statement_detail_page' post.id  %}"
+        class="none-text-decoration"
+        >Read More</a
+      >
+    </button>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="row mt-4">
+  <!-- big card -->
+  {% for post in last_two_post_statement %}
+  <div class="col-md-6">
+    <div class="card text-bg-primary mb-3 card-red">
+      <div
+        class="card-image-top big-card-image"
+        style="background-image: url({{post.images.url}});"
+        alt=""
+      ></div>
+
+      <div class="card-body">
+        <h5 class="card-title">{{post.name|truncatechars:20}}</h5>
+        <p class="card-text">{{post.discription|truncatechars:100}}</p>
+
+        <i
+          style="font-size: 13px; color: #727272; margin-right: 5px"
+          class="bi bi-clock"
+        ></i
+        ><small class="small-muted" style="color: #727272"
+          >Last updated {{post.created|timesince}} ago</small
+        >
+        <p>
+          <small class="small-muted" style="color: #727272; font-weight: bold"
+            >{{post.category|upper}}</small
+          >
+        </p>
+        <button
+          class="btn btn-danger"
+          style="background-color: #db3434; border: 1px solid #db3434"
+        >
+          <a
+            href="{% url 'myan_statement_detail_page' post.id  %}"
+            class="none-text-decoration"
+            >Read More</a
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- end of big card -->
+  {% endfor %}
+</div>

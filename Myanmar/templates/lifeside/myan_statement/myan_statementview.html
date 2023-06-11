@@ -1,0 +1,87 @@
+{% extends 'layout/main.html' %} {% load static %} {% block content %}
+
+<!-- view body -->
+<div class="container upper-first upper-second">
+  <div class="row">
+    <!--left column -->
+    <div class="col-lg-8">
+      <img
+        align="left"
+        src="{{myan_statement_detail_post.images.url}}"
+        class="me-2 party-view-image-web pointer"
+        style="width: 500px"
+      />
+      <img
+        src="../images/statement.png"
+        class="img-thumbnail my-thumbnail party-view-image-mobile"
+        alt=""
+      />
+      <h4 class="mt-2 view-header-line-height bold">
+        {{myan_statement_detail_post.name}}
+      </h4>
+      <i
+        style="font-size: 13px; color: #727272; margin-right: 5px"
+        class="bi bi-clock"
+      ></i
+      ><small class="small-muted" style="color: #727272"
+        >Last updated {{myan_statement_detail_post.created|timesince}}
+        ago</small
+      >
+      <p>
+        <small class="small-muted" style="color: #727272; font-weight: bold"
+          >{{myan_statement_detail_post.category|upper}}</small
+        >
+      </p>
+      <p class="body-line-height">{{myan_statement_detail_post.discription}}</p>
+    </div>
+
+    <!--right column -->
+    <div class="col-lg-4">
+      <!-- news -->
+      <div class="row mt-4">
+        {% for post in myan_related_posts_statementview %}
+        <div class="col-md-5">
+          <div
+            class="right-side-photo"
+            style="background-image: url({{post.images.url}});"
+          ></div>
+        </div>
+        <div class="col-md-7">
+          <h5 class="card-title small-news-title party-view-card-title">
+            {{post.name}}
+          </h5>
+          <p class="card-text small-news-text">
+            {{post.discription|truncatechars:100}}<a
+              href="{% url 'myan_statement_detail_page' post.id  %}"
+              class="read-more"
+              >read more</a
+            >
+          </p>
+          <div class="military-card-time">
+            <i
+              style="font-size: 13px; color: #727272; margin-right: 5px"
+              class="bi bi-clock"
+            ></i>
+            <small class="small-muted" style="color: #727272"
+              >Last updated {{post.created|timesince}}ago</small
+            >
+            <p style="margin-top: -5px">
+              <small
+                class="small-muted"
+                style="color: #727272; font-weight: bold; font-size: 12px"
+                >{{post.category|upper}}</small
+              >
+            </p>
+          </div>
+        </div>
+        <hr />
+        {% endfor %}
+      </div>
+
+      <!-- end of news -->
+    </div>
+  </div>
+</div>
+<!-- end view body -->
+
+{% endblock content %}
