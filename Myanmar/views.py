@@ -185,8 +185,12 @@ def myan_fpnccp_allience(request):
 
 
 # northern-allienc page views
-def northern_allience(request):
-    return render(request,'page/myan_alliences/myan_northernallience/myan_northernallience.html')
+def myan_northern_allience(request):
+    n_alliance=Alliance.objects.filter(alliancecategory__name='Northern Alliance',user__username='myanmar')[:1]
+    context={
+        'n_alliance':n_alliance
+    }
+    return render(request,'page/myan_alliences/myan_northernallience/myan_northernallience.html',context)
 # northern-allienc page views
 
 

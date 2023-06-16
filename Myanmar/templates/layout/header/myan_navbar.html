@@ -86,13 +86,14 @@
  
            <!-- drop down -->
            {% url 'myan_fpncc_page' as url %}
+           {% url 'myan_northern_alliance_page' as n_url %}
            <li class="nav-item dropdown">
-             <a class="my-nav nav nav-link dropdown-toggle {% if request.path == url %}my-active{% endif %}" href="#" role="button" data-bs-toggle="dropdown"
+             <a class="my-nav nav nav-link dropdown-toggle {% if request.path == n_url %}my-active{% endif %}{% if request.path == url %}my-active{% endif %}" href="#" role="button" data-bs-toggle="dropdown"
                aria-expanded="false">
                မဟာမိတ်
              </a>
              <ul class="dropdown-menu">
-               <li><a class="dropdown-item" href="{% url 'northern-allience-page' %}">မြောက်ပိုင်းမဟာမိတ်</a></li>
+               <li><a class="dropdown-item" href="{% url 'myan_northern_alliance_page' %}">မြောက်ပိုင်းမဟာမိတ်</a></li>
                <li><a class="dropdown-item" href="{% url 'myan_fpncc_page' %}">FPNCC</a></li>
              </ul>
            </li>

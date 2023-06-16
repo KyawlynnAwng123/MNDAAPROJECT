@@ -33,7 +33,7 @@
 
         <!-- name and language -->
           <div class="text-danger text-center mt-3">
-            {% if request.user.is_authenticated %}
+          {% if request.user.is_authenticated %}
           <b>{{request.user.username|upper}}</b>
           <br />
           {% if request.user.english == True %}

@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-6">
       <h5 class="mt-2">{{post.name}}</h5>
-      <p>{{post.discription|truncatechars:500}}</p>
+      <p>{{post.discription|truncatechars:500|safe}}</p>
       <i
         style="font-size: 13px; color: #727272; margin-right: 5px"
         class="bi bi-clock"
@@ -61,7 +61,7 @@
           <div class="col-lg-6 col-md-12">
             <div class="card-body">
               <h5 class="party-two-photo-header">{{post.name}}</h5>
-              <p>{{post.discription|truncatechars:100}}</p>
+              <p>{{post.discription|truncatechars:100|safe}}</p>
               <i
                 style="font-size: 13px; color: #727272; margin-right: 5px"
                 class="bi bi-clock"

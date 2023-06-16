@@ -16,7 +16,7 @@
                     <small class="small-muted"
                          style="color: #727272; font-weight: bold">{{myan_party_detail_post.category|upper}}</small>
                </p>
-               <p>{{myan_party_detail_post.discription}}</p>
+               <p>{{myan_party_detail_post.discription|safe}}</p>
           </div>
 
           <!--right column -->
@@ -33,7 +33,7 @@
                              {{relatedpost.name}}
                          </h5>
                          <p class="card-text small-news-text">
-                              {{relatedpost.discription|truncatechars:100}}<a href="{% url 'myan_party_detail_page' relatedpost.id %}" class="read-more">read
+                              {{relatedpost.discription|truncatechars:100|safe}}<a href="{% url 'myan_party_detail_page' relatedpost.id %}" class="read-more">read
                                    more</a>
                          </p>
                          <div class="military-card-time">

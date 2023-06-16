@@ -7,6 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+   <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
    <title>Post Create</title>
 </head>
 <body>
@@ -38,7 +39,7 @@
             <a href="{% url 'announcementcreatepage' %}" class="list-group-item list-group-item-action list-active"
             >Announcement Post Create</a
           > 
-             <a href="{% url 'postcreatepage' %}" class="list-group-item list-group-item-action list-active"
+             <a href="{% url 'alliancecreatepage' %}" class="list-group-item list-group-item-action list-active"
             >Alliances Post Create</a
           > 
             <a href="{% url 'allpostpage' %}" class="list-group-item list-group-item-action">Post All</a>
@@ -115,16 +116,16 @@
                             <div class="mb-3">
                               <label for="" class="form-label">Title</label>
                               <input id="title" onkeyup="titleFnc()" type="text"
-                                class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
+                                class="form-control" name="name" id="" aria-describedby="helpId" placeholder="" required>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Image</label>
                                 <input id="imageInput" type="file"
-                                  class="form-control" name="image" id="" aria-describedby="helpId" placeholder="">
+                                  class="form-control" name="image" id="" aria-describedby="helpId" placeholder="" required>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Category</label>
-                                <select class="form-select form-select-md" name="category" id="category" onchange="categoryFnc()">
+                                <select class="form-select form-select-md" name="category" id="category" onchange="categoryFnc()" required>
                                 
                                     <option selected>Select one</option>
                                     {% for cat in category %}
@@ -140,7 +141,7 @@
                             <button type="submit" name="saveandanother" class="btn btn-primary mt-3">Save And Another</button>
                             <button type="submit" class="btn btn-primary mt-3">Save</button>
                         
-                            <a href="{% url 'dashboardpage' %}"><button type="button" class="btn btn-primary mt-3">Back</button></a>
+                            <a href="{% url 'allpostpage' %}"><button type="button" class="btn btn-primary mt-3">Back</button></a>
                         </div>
                        
 
@@ -172,6 +173,7 @@
    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
    <script>
+       CKEDITOR.replace( 'discription' );
         // title
         let title = document.getElementById('title');
         let titleShow = document.getElementById('titleShow');

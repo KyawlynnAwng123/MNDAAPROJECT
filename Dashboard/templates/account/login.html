@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'css/loginForm.css' %}">
+   <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+   <title>Document</title>
+</head>
+<body>
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-5 mx-auto">
+                <div class="card" style="margin-top: 10vh;">
+                    <img class="card-img-top" src="{% static 'images/MNDAAcopy.png' %}" alt="Title">
+                    <div class="card-body text-whi px-4">
+                        <h4 class="fw-bold py-2 text-center rounded text-blue">Please Sign In</h4>
+                        <form action="" method="POST">
+                          {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="" class="form-label mt-2 fw-bold">Username</label>
+                                <input type="text"
+                                    class="form-control form-control-md border-top-0 border-start-0 border-end-0" name="username" id="" aria-describedby="helpId" placeholder="Enter your email">
+                                <small id="helpId" class="form-text text-muted d-none">Help text</small>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="" class="form-label mt-2 fw-bold">Password</label>
+                                  <input type="password"
+                                      class="form-control form-control-md border-top-0 border-start-0 border-end-0" name="password" id="" aria-describedby="helpId" placeholder="Enter your password">
+                                  <small id="helpId" class="form-text text-muted d-none">Help text</small>
+                              </div>
+                              <button type="submit"class="btn bg-blue text-white mt-2 mb-2">submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

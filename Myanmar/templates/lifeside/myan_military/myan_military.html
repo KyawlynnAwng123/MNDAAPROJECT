@@ -21,7 +21,7 @@
 
   <div class="col-md-6">
     <h5 class="statement-header">{{post.name}}</h5>
-    <p>{{post.discription|truncatechars:500}}</p>
+    <p>{{post.discription|truncatechars:500|safe}}</p>
     <i
       style="font-size: 13px; color: #727272; margin-right: 5px"
       class="bi bi-clock"
@@ -68,7 +68,7 @@
           {{post.name|truncatechars:50}}
         </h5>
         <p class="card-text military-card-text">
-          {{post.discription|truncatechars:100}}
+          {{post.discription|truncatechars:100|safe}}
         </p>
         <div class="military-card-time">
           <i

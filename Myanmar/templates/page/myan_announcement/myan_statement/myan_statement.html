@@ -21,7 +21,7 @@
       <h5 class="mt-2">{{post.name}}
       </h5>
       <p>
-        {{post.discription|truncatechars:100}}
+        {{post.discription|truncatechars:100|safe}}
       </p>
       <i
         style="font-size: 13px; color: #727272; margin-right: 5px"
@@ -75,7 +75,7 @@
             <div class="card-body">
               <h5 class="party-two-photo-header">{{post.name}}</h5>
               <p>
-                {{post.discription|truncatechars:100}}
+                {{post.discription|truncatechars:100|safe}}
               </p>
               <i
                 style="font-size: 13px; color: #727272; margin-right: 5px"

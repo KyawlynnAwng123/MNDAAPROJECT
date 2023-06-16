@@ -39,7 +39,7 @@
             <a href="{% url 'announcementcreatepage' %}" class="list-group-item list-group-item-action list-active"
             >Announcement Post Create</a
           > 
-             <a href="{% url 'postcreatepage' %}" class="list-group-item list-group-item-action list-active"
+             <a href="{% url 'alliancecreatepage' %}" class="list-group-item list-group-item-action list-active"
             >Alliances Post Create</a
           > 
             <a href="{% url 'allpostpage' %}" class="list-group-item list-group-item-action">Post All</a>
@@ -109,17 +109,18 @@
                 <!-- left side -->
                 <div class="col-md-6">
                     <div class="card ms-3 mt-3 vh-100">
-                        <div class="card-header">All Posts</div>
+                        <div class="card-header">Statement   Posts</div>
                         <div class="card-body">
-                            {% if request.user.english == True %}
+                           
                            {% for post in statement_posts %}
+                           {% if request.user == post.user %}
                             <!-- post -->
                             <div class="d-flex mb-3">
                                 <img width="100px" height="100px" src="{{post.images.url}}" class="rounded object-fit-cover" alt="">
                                 <div class="ms-3">
                                     <p class="mb-0">{{post.name}}</p>
                                     <i>
-                                        <small style="margin-top: -10px;">Category</small>
+                                        <small style="margin-top: -10px;">{{post.category}}</small>
                                     </i>
                                     <div class="dropright navbar">
                                         <small class="dropdown dropright" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -128,18 +129,16 @@
                                         </small>
                                         <div style="top: -10px;left: 60px;" class="dropdown-menu px-2" aria-labelledby="triggerId">
                                             <a name="" id="" class="btn btn-primary btn-sm" href="{% url 'postdetailpage' post.id %}" role="button">Preview</a>
-                                            <a name="" id="" class="btn btn-success btn-sm" href="#" role="button">Edit</a>
+                                            <a name="" id="" class="btn btn-success btn-sm" href="{% url 'statementupdatepage' post.id %}" role="button">Edit</a>
                                             <a onclick="return confirm('Are You Sure To Delete')" name="statementdelete" id="" class="btn btn-danger btn-sm" href="{% url 'postdeletepage' post.id %}" role="button">Delete</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {% endfor %}
-                            {% else %}
-                            <div>
-                                <h5>There is no anything for you</h5>
-                             </div>
                             {% endif %}
+                            {% endfor %}
+                           
+                            
                             <!-- end post -->
                         </div>
                     </div>

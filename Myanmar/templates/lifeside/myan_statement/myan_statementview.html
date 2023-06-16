@@ -32,7 +32,7 @@
           >{{myan_statement_detail_post.category|upper}}</small
         >
       </p>
-      <p class="body-line-height">{{myan_statement_detail_post.discription}}</p>
+      <p class="body-line-height">{{myan_statement_detail_post.discription|safe}}</p>
     </div>
 
     <!--right column -->
@@ -51,7 +51,7 @@
             {{post.name}}
           </h5>
           <p class="card-text small-news-text">
-            {{post.discription|truncatechars:100}}<a
+            {{post.discription|truncatechars:100|safe}}<a
               href="{% url 'myan_statement_detail_page' post.id  %}"
               class="read-more"
               >read more</a

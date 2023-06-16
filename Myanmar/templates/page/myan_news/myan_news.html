@@ -18,7 +18,7 @@
             {{post.name}}
           </h5>
           <p>
-            {{post.discription|truncatechars:100}}
+            {{post.discription|truncatechars:100|safe}}
           </p>
           <i style="font-size: 13px; color: #727272; margin-right: 5px" class="bi bi-clock"></i><small
             class="small-muted" style="color: #727272">Last updated {{post.created|timesince}} ago</small>
@@ -49,7 +49,7 @@
             <div class="card-body">
               <h5 class="card-title">{{post.name}}</h5>
               <p class="card-text">
-                {{post.discription|truncatechars:100}}
+                {{post.discription|truncatechars:100|safe}}
               </p>
 
               <i style="font-size: 13px; color: #727272; margin-right: 5px" class="bi bi-clock"></i><small
@@ -80,7 +80,7 @@
             <div class="card-body">
               <h5 class="card-title military-card-title">{{post.name}}</h5>
               <p class="card-text military-card-text">
-                {{post.discription|truncatechars:100}}
+                {{post.discription|truncatechars:100|safe}}
               </p>
               <div class="military-card-time">
                 <i style="font-size: 13px; color: #727272; margin-right: 5px" class="bi bi-clock"></i><small
@@ -117,7 +117,7 @@
            {{post.name}}
           </h5>
           <p class="card-text small-news-text">
-       {{post.discription|truncatechars:50}}<a href="{% url 'myan_statement_detail_page' post.id %}" class="read-more">read more</a>
+       {{post.discription|truncatechars:50|safe}}<a href="{% url 'myan_statement_detail_page' post.id %}" class="read-more">read more</a>
           </p>
           <div class="military-card-time">
             <i style="font-size: 13px; color: #727272; margin-right: 5px" class="bi bi-clock"></i>

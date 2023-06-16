@@ -43,7 +43,7 @@
             >Alliances Post Create</a
           > 
             <a href="{% url 'allpostpage' %}" class="list-group-item list-group-item-action">Post All</a>
-               <a href="{% url 'allpostpage' %}" class="list-group-item list-group-item-action">Post All</a>
+
               <a href="{% url 'statementpage' %}" class="list-group-item list-group-item-action"
             >Statement Posts</a>
              <a href="{% url 'militarypage' %}" class="list-group-item list-group-item-action"
@@ -111,9 +111,10 @@
                     <div class="card ms-3 mt-3 vh-100">
                         <div class="card-header">All Posts</div>
                         <div class="card-body">
-                         {% if request.user.english == True %}
+                         
                          
                            {% for post in all_posts %}
+                           {% if request.user == post.user %}
                            
                             <!-- post -->
                             <div class="d-flex mb-3">
@@ -130,19 +131,18 @@
                                         </small>
                                         <div style="top: -10px;left: 60px;" class="dropdown-menu px-2" aria-labelledby="triggerId">
                                             <a name="" id="" class="btn btn-primary btn-sm" href="{% url 'postdetailpage' post.id %}" role="button">Preview</a>
-                                            <a name="" id="" class="btn btn-success btn-sm" href="#" role="button">Edit</a>
+                                            <a name="" id="" class="btn btn-success btn-sm" href="{% url 'postupdatepage' post.id %}" role="button">Edit</a>
                                             <a onclick="return confirm('Are You Sure To Delete')" name="" id="" class="btn btn-danger btn-sm" href="loginForm.html" role="button">Delete</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {% endif %}
                             {% endfor %}
                             
-                            {% else %}
-                            <div>
-                                <h5>There is no anything for you</h5>
-                             </div>
-                            {% endif %}
+                           
+                            
+                           
                             <!-- end post -->
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                             <h5>{{detail_post.name}}</h5>
                             <img src="{{detail_post.images.url}}" alt="">
                             <p>{{detail_post.category}}</p>
-                            <p>{{detail_post.discription}}</p>
+                            <p>{{detail_post.discription|safe}}</p>
                         </div>
                     </div>
                 </div>

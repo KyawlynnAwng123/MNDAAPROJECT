@@ -1,10 +1,10 @@
 from django.urls import path
 from .import views
 
-url='myanmar'
+
 
 urlpatterns = [
-    path('myan/',views.myanmarindexpageviews,name="myanmarpage"),
+    path('',views.myanmarindexpageviews,name="myanmarpage"),
     path('myan_news/',views.myan_newspageviews,name="myan_news_page"),
 
     # start mya_nation urls
@@ -18,6 +18,7 @@ urlpatterns = [
 
     # start alliances urls 
     path('myan_fpncc/',views.myan_fpnccp_allience,name="myan_fpncc_page"),
+    path('myan_northern_alliance/',views.myan_northern_allience,name="myan_northern_alliance_page"),
 
     # start detail urls
     path('myan_statement/<str:pk>/',views.myan_statementdetailpage,name="myan_statement_detail_page"),

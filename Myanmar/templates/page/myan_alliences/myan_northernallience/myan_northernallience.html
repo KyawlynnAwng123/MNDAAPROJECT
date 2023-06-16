@@ -1,20 +1,22 @@
-{% extends 'layout/master.html' %}
+{% extends 'layout/main.html' %}
 {% load static %}
 {% block content %}
 <!-- party body -->
 <div class="container upper-first upper-second">
      <!-- upper photo -->
      <div class="row mt-4">
+      {% for alliance in n_alliance %}
        <div class="col-md-6">
-         <div style="background-image: url({% static 'images/northern alliance logo.png' %});width:100%;height:400px" class="bg-cover"></div>
+         <div style="background-image: url({{alliance.images.url}});width:100%;height:400px" class="bg-cover"></div>
        </div>
        <div class="col-md-6">
-         <h5 class="mt-2 bold header-line-height">နစကမှ နိုင်ငံရေးအမြင်မတူသည့် ပုဂ္ဂိုလ်(၄) ဦးအား သေဒဏ်စီရင်ဆောင်ရွက်လိုက်ခြင်းအပေါ် ညီနောင်မဟာမိတ်(၃)ဖွဲ့၏ ထုတ်ပြန်ကြေညာချက်</h5>
-         <p class="body-line-height">ဇူလိုင်လ (၂၄) ရက်နေ့တွင် နိုင်ငံတော်စီမံအုပ်ချုပ်ရေးကောင်စီ (နစက) မှ နိုင်ငံရေးအမြင်မတူသည့် ပုဂ္ဂိုလ်(၄) ဦးအား သေဒဏ်စီရင်ဆောင်ရွက်လိုက်ခြင်းကို မီဒီယာအသီးသီးမှတစ်ဆင့် ကြားသိလိုက်ရပါသည်။ အမျိုးသားဒီမိုကရေစီအဖွဲ့ချုပ် (NLD) ၏ လွှတ်တော်ကိုယ်စားလှယ်‌ဟောင်းဖြစ်‌သော ကိုဖြိုးဇေယျာသော်နှင့် ဝါရင့်နိုင်ငံရေးသမား ကျောင်းသားခေါင်းဆောင် ကိုကျော်မင်းယု (ခ) ကိုဂျင်မီ၊ ကိုလှမျိုးအောင် (ခ) ကိုမျိုး၊ ကိုအောင်သူရဇော် (ခ) ကတုံး (ခ) သူရတို့ (၄) ဦးအားသေဒဏ်စီရင်လိုက်ခြင်းသည် လက်ရှိကမ္ဘာ့နိုင်ငံအရေး၏ စံထားချက်များနှင့် ဆန့်ကျင်နေသလို ကုလသမဂ္ဂ၏ လူ့အခွင့်အရေးကြေညာစာတမ်း၊ အပြည်ပြည်ဆိုင်ရာ ...</p>
-         <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated 3 mins ago</small>
-         <p><small class="small-muted" style="color:#727272;font-weight: bold;">STATEMENT</small></p>
-         <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;"><a class="none-text-decoration" href="../announcement/statementView.html">Read More</a></button>
+         <h5 class="mt-2 bold header-line-height">{{alliance.name}}</h5>
+         <p class="body-line-height">{{alliance.discription|safe|truncatechars:400}}</p>
+         <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">Last updated {{alliance.created|timesince}}ago</small>
+         <p><small class="small-muted" style="color:#727272;font-weight: bold;">{{alliance.category|upper}}</small></p>
+         <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;"><a class="none-text-decoration" href="">Read More</a></button>
        </div>
+       {% endfor %}
      </div>
      <!-- end upper photo -->
  
