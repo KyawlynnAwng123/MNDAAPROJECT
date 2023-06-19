@@ -1,0 +1,13 @@
+.form-control:focus {
+	color: #212529;
+	background-color: #fff;
+	border-color: #dc3545 !important;
+	outline: 0;
+	box-shadow: 0 0 0 .25rem white !important;
+}
+.bg-blue{
+    background-color: #343172 !important;
+}
+.text-blue{
+    color: #343172 !important;
+}

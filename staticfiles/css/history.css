@@ -1,0 +1,12 @@
+@media (max-width : 767px ){
+    .modified-mndaa-web{
+        display: none;
+    }
+    .modified-mndaa-mobile{
+        display: initial !important;
+    }
+}
+.modified-mndaa-mobile{
+    display: none;
+    padding: 0px;
+}

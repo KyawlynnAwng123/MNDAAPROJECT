@@ -1,0 +1,14 @@
+.right-side-photo{
+   width: 100%;
+   min-height: 91%;
+   height: 180px;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.small-news-text{
+   font-size: 14px;
+}
+.read-more{
+   color: #ff4242;
+}

@@ -1,0 +1,14 @@
+.party-view-image-mobile{
+    display: none;
+}
+@media (max-width : 767px){
+    .party-view-image-web{
+        display: none !important;
+    }
+    .party-view-image-mobile{
+        display: initial !important;
+    }
+    .party-view-card-title{
+        margin-top: 10px;
+    }
+}
